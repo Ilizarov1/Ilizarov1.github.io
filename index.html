@@ -64,14 +64,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-pic-test" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-React 学习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/11/11/pic-test/" class="article-date">
-  <time datetime="2021-11-11T13:10:09.000Z" itemprop="datePublished">2021-11-11</time>
+    <a href="/2021/11/28/React%20%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2021-11-28T12:50:00.000Z" itemprop="datePublished">2021-11-28</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
   </div>
 
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/11/pic-test/">pic-test</a>
+      <a class="article-title" href="/2021/11/28/React%20%E5%AD%A6%E4%B9%A0/">React 学习</a>
     </h1>
   
 
@@ -90,13 +90,127 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/2021/11/11/pic-test/test.jpg" class="" title="This is an example image">
+        <h1 id="React-学习"><a href="#React-学习" class="headerlink" title="React 学习"></a>React 学习</h1><h2 id="React-编程思想"><a href="#React-编程思想" class="headerlink" title="React 编程思想"></a>React 编程思想</h2><h3 id="UI-分解为组件"><a href="#UI-分解为组件" class="headerlink" title="UI  分解为组件"></a>UI  分解为组件</h3><ul>
+<li>考虑三个方面：编程（单一责任原则[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Single-responsibility_principle">Single-responsibility principle - Wikipedia</a>]）、CSS、设计</li>
+<li>应当保持 UI 和数据模型（JSON）拥有相同的信息结构，数据能够很自然的映射到组件上，组件能与数据的一部分相匹配。</li>
+<li>化为层级结构</li>
+<li><img src="D:\Projects\hexo_blog\source\images\ReactStudy\image-20211128200839015.png" alt="image-20211128200839015"></li>
+</ul>
+<h3 id="构建静态版本"><a href="#构建静态版本" class="headerlink" title="构建静态版本"></a>构建静态版本</h3><ul>
+<li>自下而上：适用较大的项目</li>
+<li>自上而下：适用较小的项目</li>
+</ul>
+<h3 id="选择最小且最完整的state"><a href="#选择最小且最完整的state" class="headerlink" title="选择最小且最完整的state"></a>选择最小且最完整的state</h3><ul>
+<li>DRY原则[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Don't_repeat_yourself">Don’t repeat yourself - Wikipedia</a>]：修改任何元素时，都不需要修改其它逻辑上不相关的元素</li>
+<li>考虑三个方面：<ul>
+<li>是否会发生变化</li>
+<li>是否来自于父组件</li>
+<li>是否能通过已有的 state 和 prop 计算得到</li>
+</ul>
+</li>
+</ul>
+<h3 id="确定-state-所属的组件"><a href="#确定-state-所属的组件" class="headerlink" title="确定 state 所属的组件"></a>确定 state 所属的组件</h3><ul>
+<li>针对每一个 state 应当：<ol>
+<li>找到基于它渲染的每一个组件</li>
+<li>找到这些组件最近的公共父组件</li>
+<li>决定它应该放在哪，三种可能的方式：<ol>
+<li>直接放在公共父组件 - 常用</li>
+<li>公共父组件之上的某些组件</li>
+<li>若找不到合适的，则专门新建一个组件持有这个state，并将这个组件置于公共父组件之上</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="添加反向数据流"><a href="#添加反向数据流" class="headerlink" title="添加反向数据流"></a>添加反向数据流</h3><ul>
+<li>react 渲染时，数据流单向，逐层向下</li>
+<li>为根据用户输入改变组件，需要增加方向的数据流</li>
+<li>向下传递能够改变 state 的函数</li>
+</ul>
+<h2 id="绘制界面"><a href="#绘制界面" class="headerlink" title="绘制界面"></a>绘制界面</h2><h3 id="导入导出"><a href="#导入导出" class="headerlink" title="导入导出"></a>导入导出</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Gallery <span class="keyword">from</span> <span class="string">&#x27;./Gallery.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">Gallery</span> /&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h3 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h3><ul>
+<li>在 js 里写 HTML </li>
+<li>JSX 与 React 是分离的，均可以单独使用</li>
+<li>使用原则：<ul>
+<li>仅返回一个根元素<ul>
+<li>原因：一个组件是一个函数，函数返回值只能是一个对象，除非包装成一个数组，否则不能返回两个对象</li>
+<li>空标签[<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/fragments.html">Fragments – React (docschina.org)</a>]：可以不渲染多余的 div</li>
+</ul>
+</li>
+<li>所有元素闭合，如 &lt;img&gt; 必须写成 &lt;img /&gt; </li>
+<li>驼峰命名法，所有，包括属性，比如 SVG 中 stroke-width属性需写成 strokeWidth<ul>
+<li>原因：JSX 本质上仍是JS，变量命名需要遵循JS的原则，比如 class作为保留字不能使用</li>
+<li>例外，由于历史原因aria-*，data-* 等属性仍使用破折号</li>
+<li>HTML / SVG  to JSX 转换器：<a target="_blank" rel="noopener" href="https://transform.tools/html-to-jsx">HTML to JSX (transform.tools)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="传递-Props"><a href="#传递-Props" class="headerlink" title="传递 Props"></a>传递 Props</h3><ul>
+<li><p>解构赋值</p>
+</li>
+<li><p>```jsx<br>function Avatar({ person, size = 10 }) {<br>  // person and size are available here<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 展开语法</span><br><span class="line"></span><br><span class="line">- ```jsx</span><br><span class="line">  function Profile(props) &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div className=&quot;card&quot;&gt;</span><br><span class="line">        &lt;Avatar &#123;...props&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>传递组件 {children} </p>
+</li>
+<li><p>```jsx<br>import Avatar from ‘./Avatar.js’;</p>
+<p>function Card({ children }) {<br>  return (</p>
+<pre><code>&lt;div className=&quot;card&quot;&gt;
+  &#123;children&#125;
+&lt;/div&gt;
+</code></pre>
+<p>  );<br>}</p>
+<p>export default function Profile() {<br>  return (</p>
+<pre><code>&lt;Card&gt;
+  &lt;Avatar
+    size=&#123;100&#125;
+    person=&#123;&#123; 
+            name: 'Katsuko Saruhashi',
+            imageId: 'YfeOqp2'
+          &#125;&#125;
+  /&gt;
+&lt;/Card&gt;
+</code></pre>
+<p>  );<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 条件渲染</span><br><span class="line"></span><br><span class="line">-  if</span><br><span class="line"></span><br><span class="line">  ```jsx</span><br><span class="line">  if (isPacked) &#123;</span><br><span class="line">    return &lt;li className=&quot;item&quot;&gt;&#123;name&#125; ✔&lt;/li&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">  return &lt;li className=&quot;item&quot;&gt;&#123;name&#125;&lt;/li&gt;;</span><br></pre></td></tr></table></figure></li>
+<li><p>三目运算符</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">className</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    &#123;isPacked ? name + &#x27; ✔&#x27; : name&#125;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+<li><p>AND</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">className</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    &#123;name&#125; &#123;isPacked &amp;&amp; &#x27;✔&#x27;&#125;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>PS : AND 左边不能直接使用数值。原因：当值为 0 时，比如 ，{ count &amp;&amp; &lt;Elem /&gt; } 当count = 0 时，表达式并不会产生断路效果，什么都不渲染，而是渲染 0 本身</p>
+</li>
+<li><p>赋值给变量</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (isPacked) &#123;</span><br><span class="line">  itemContent = name + <span class="string">&quot; ✔&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">className</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    &#123;itemContent&#125;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="渲染列表"><a href="#渲染列表" class="headerlink" title="渲染列表"></a>渲染列表</h3><ul>
+<li>数组的 map 方法和 filter 方法</li>
+<li>区别于单纯的空标签 &lt;Fragment key = { id }&gt; 可以添加 key , 同时它又不会被渲染出来</li>
+<li>key 的选择：唯一且不变</li>
+<li>为什么需要 key ：类型与文件系统中的文件名，用于识别文件，如果没有，当项的顺序因为删除插入发生变化时不能进行有效的识别。这也是为什么最好不要使用数组的索引作为key的原因</li>
+<li>组件不会接受名为 “key” 的 prop </li>
+</ul>
+<h3 id="组件应当是一个纯函数"><a href="#组件应当是一个纯函数" class="headerlink" title="组件应当是一个纯函数"></a>组件应当是一个纯函数</h3><ul>
+<li>纯函数：不改变任何外部的对象和变量、同样的输入产生同样的输出<ul>
+<li>组件渲染时不应当改变先前就已经存在的变量和对象</li>
+<li>组件渲染应当不依赖其他组件，每个组件应只计算自身的JSX</li>
+<li>在React严格模式下可以发现这些不纯的组件</li>
+</ul>
+</li>
+<li>函数式编程需要纯粹性<ul>
+<li>但是，必要时必须发生变化，比如重绘页面、更改数据</li>
+<li>因此这些改变称为副作用（Effect Side），改变发生在其余时间而不是渲染时</li>
+<li>副作用通常属于事件处理程序，所以事件处理函数可以不是纯函数</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ilizarov1.github.io/2021/11/11/pic-test/" data-id="ckvuyztj20000e0u70z6sak0f" class="article-share-link">Share</a>
+      <a data-url="https://ilizarov1.github.io/2021/11/28/React%20%E5%AD%A6%E4%B9%A0/" data-id="ckwjcxfy80000ycu7gvbufj39" class="article-share-link">Share</a>
       
       
     </footer>
@@ -268,55 +382,6 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/11/hello-world/" class="article-date">
-  <time datetime="2021-11-11T12:20:52.969Z" itemprop="datePublished">2021-11-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ilizarov1.github.io/2021/11/11/hello-world/" data-id="ckvuxfjo900008su7h7v0ce7g" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
 </section>
@@ -355,7 +420,7 @@
       <ul>
         
           <li>
-            <a href="/2021/11/11/pic-test/">pic-test</a>
+            <a href="/2021/11/28/React%20%E5%AD%A6%E4%B9%A0/">React 学习</a>
           </li>
         
           <li>
@@ -364,10 +429,6 @@
         
           <li>
             <a href="/2021/11/11/SVG%E5%AD%A6%E4%B9%A0/">SVG学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/11/hello-world/">Hello World</a>
           </li>
         
       </ul>
