@@ -18,12 +18,6 @@
       </categories>
       
       
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-        </tags>
-      
     </entry>
     
     
@@ -37,6 +31,8 @@
       
       
       <categories>
+          
+          <category> 前端 </category>
           
           <category> React </category>
           
