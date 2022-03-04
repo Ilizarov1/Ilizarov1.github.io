@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>SVG学习笔记 | Not A Number</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SVG1. SVG与Canvas 两种绘图方式 SVG图像可以绘制在Canvas上 API 参考：Canvas - Web API 接口参考 | MDN (mozilla.org)  2. Canvas绘制SVG核心：drawImage() CanvasRenderingContext2D.drawImage() - Web API 接口参考 | MDN (mozilla.org) PS：有一个实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVG学习笔记">
+<meta property="og:url" content="https://ilizarov1.github.io/2021/11/11/svg-xue-xi/index.html">
+<meta property="og:site_name" content="Not A Number">
+<meta property="og:description" content="SVG1. SVG与Canvas 两种绘图方式 SVG图像可以绘制在Canvas上 API 参考：Canvas - Web API 接口参考 | MDN (mozilla.org)  2. Canvas绘制SVG核心：drawImage() CanvasRenderingContext2D.drawImage() - Web API 接口参考 | MDN (mozilla.org) PS：有一个实">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-11T12:50:00.000Z">
+<meta property="article:modified_time" content="2021-11-11T13:10:39.311Z">
+<meta property="article:author" content="Ilizarov Zhao">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Not A Number" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Not A Number</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://ilizarov1.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SVG学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/11/svg-xue-xi/" class="article-date">
+  <time datetime="2021-11-11T12:50:00.000Z" itemprop="datePublished">2021-11-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SVG学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h1><h2 id="1-SVG与Canvas"><a href="#1-SVG与Canvas" class="headerlink" title="1. SVG与Canvas"></a>1. SVG与Canvas</h2><ul>
+<li>两种绘图方式</li>
+<li>SVG图像可以绘制在Canvas上</li>
+<li>API 参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API">Canvas - Web API 接口参考 | MDN (mozilla.org)</a></li>
+</ul>
+<h2 id="2-Canvas绘制SVG"><a href="#2-Canvas绘制SVG" class="headerlink" title="2. Canvas绘制SVG"></a>2. Canvas绘制SVG</h2><p>核心：drawImage()</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage">CanvasRenderingContext2D.drawImage() - Web API 接口参考 | MDN (mozilla.org)</a></p>
+<p>PS：有一个实验中的API Path2D() 可以直接绘制SVG路径</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Path2D/Path2D">Path2D() - Web API 接口参考 | MDN (mozilla.org)</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleDraw</span>(<span class="params">multi</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> svgImg = imgRef.current; <span class="comment">// 使用svg作为src的image标签</span></span><br><span class="line">    <span class="keyword">const</span> canvas = canvasRef.current;<span class="comment">// canvas元素</span></span><br><span class="line">    <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>); <span class="comment">// 获取2d图像绘制功能</span></span><br><span class="line">    <span class="keyword">let</span> width = svgImg.clientWidth * multi;<span class="comment">// multi: 放大倍数</span></span><br><span class="line">    <span class="keyword">let</span> height = svgImg.clientHeight * multi;</span><br><span class="line">    canvas.width = width;<span class="comment">// 设置canvas的大小</span></span><br><span class="line">    canvas.height = height;</span><br><span class="line">    ctx.drawImage(svgImg, <span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用Path2D API绘制SVG Paths</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleSVGPaths</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> canvas = canvasRef.current;</span><br><span class="line">  <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> pureSvg = svgRef.current;</span><br><span class="line">  <span class="keyword">const</span> paths = pureSvg.childNodes;</span><br><span class="line">  ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">48</span>, <span class="number">48</span>);</span><br><span class="line">  ctx.scale(<span class="number">2</span> / <span class="number">3</span>, <span class="number">2</span> / <span class="number">3</span>); <span class="comment">// 不知道为什么画出来是48*48而不是32*32</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> p <span class="keyword">of</span> paths) &#123;</span><br><span class="line">    <span class="keyword">const</span> d = p.getAttribute(<span class="string">&#x27;d&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> stroke = p.getAttribute(<span class="string">&#x27;stroke&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> strokeWidth = p.getAttribute(<span class="string">&#x27;stroke-width&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> strokeLinejoin = p.getAttribute(<span class="string">&#x27;stroke-linejoin&#x27;</span>); <span class="comment">// 获取各种属性</span></span><br><span class="line">    <span class="keyword">const</span> p2d = <span class="keyword">new</span> Path2D(d); <span class="comment">// 创建svg path</span></span><br><span class="line">    ctx.strokStyle = stroke; <span class="comment">// 设置颜色宽度连接方式等</span></span><br><span class="line">    ctx.lineWidth = (<span class="built_in">Number</span>(strokeWidth) * <span class="number">2</span>) / <span class="number">3</span>;</span><br><span class="line">    ctx.lineJoin = strokeLinejoin;</span><br><span class="line">    ctx.stroke(p2d); <span class="comment">// 绘制</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">ref</span>=<span class="string">&#123;svgRef&#125;</span> <span class="attr">width</span>=<span class="string">&#x27;32&#x27;</span> <span class="attr">height</span>=<span class="string">&#x27;32&#x27;</span> <span class="attr">viewBox</span>=<span class="string">&#x27;0 0 48 48&#x27;</span> <span class="attr">fill</span>=<span class="string">&#x27;none&#x27;</span> <span class="attr">xmlns</span>=<span class="string">&#x27;http://www.w3.org/2000/svg&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&#x27;M5 7L10 9V37L5 39V7Z&#x27;</span> <span class="attr">fill</span>=<span class="string">&#x27;none&#x27;</span> <span class="attr">stroke</span>=<span class="string">&#x27;#333&#x27;</span> <span class="attr">strokeWidth</span>=<span class="string">&#x27;4&#x27;</span> <span class="attr">strokeLinejoin</span>=<span class="string">&#x27;round&#x27;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&#x27;M16 23L21 25V37L16 39V23Z&#x27;</span> <span class="attr">fill</span>=<span class="string">&#x27;none&#x27;</span> <span class="attr">stroke</span>=<span class="string">&#x27;#333&#x27;</span> <span class="attr">strokeWidth</span>=<span class="string">&#x27;4&#x27;</span> <span class="attr">strokeLinejoin</span>=<span class="string">&#x27;round&#x27;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&#x27;M27 21L32 19V35L27 33V21Z&#x27;</span> <span class="attr">fill</span>=<span class="string">&#x27;none&#x27;</span> <span class="attr">stroke</span>=<span class="string">&#x27;#333&#x27;</span> <span class="attr">strokeWidth</span>=<span class="string">&#x27;4&#x27;</span> <span class="attr">strokeLinejoin</span>=<span class="string">&#x27;round&#x27;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&#x27;M38 9L43 11V37L38 39V9Z&#x27;</span> <span class="attr">fill</span>=<span class="string">&#x27;none&#x27;</span> <span class="attr">stroke</span>=<span class="string">&#x27;#333&#x27;</span> <span class="attr">strokeWidth</span>=<span class="string">&#x27;4&#x27;</span> <span class="attr">strokeLinejoin</span>=<span class="string">&#x27;round&#x27;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-SVG导出为PNG"><a href="#3-SVG导出为PNG" class="headerlink" title="3.  SVG导出为PNG"></a>3.  SVG导出为PNG</h2><p>核心：通过DataUrl创建链接进行下载</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle2PNG</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> data = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>, <span class="number">1</span>); <span class="comment">// 类型,图片质量</span></span><br><span class="line">  <span class="keyword">const</span> a = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>); <span class="comment">// 创建下载链接</span></span><br><span class="line">  a.href = data;</span><br><span class="line">  a.download = <span class="string">&#x27;svgDemo.png&#x27;</span>;</span><br><span class="line">  a.click();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-SVG转换为PNG-Uri"><a href="#4-SVG转换为PNG-Uri" class="headerlink" title="4.  SVG转换为PNG Uri"></a>4.  SVG转换为PNG Uri</h2><p>核心：SVG -&gt; SVG Base64 Uri -&gt; &lt;image/&gt; -&gt; canvas -&gt; toDataURL(‘image/png’)</p>
+<ol>
+<li><p>对SVG进行预处理</p>
+<ol>
+<li>处理内部的&lt;image/&gt;</li>
+<li>处理CSS</li>
+</ol>
+</li>
+<li><p>把SVG转换为base64编码的Uri</p>
+<ol>
+<li>API window.btoa() <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/btoa">WindowOrWorkerGlobalScope.btoa() - Web API 接口参考 | MDN (mozilla.org)</a></li>
+</ol>
+</li>
+<li><p>通过获得的SVG DataUri，新建&lt;image/&gt;</p>
+</li>
+<li><p>image加载成功时，利用回调，转换为PNG Uri：</p>
+<ol>
+<li>创建canvas</li>
+<li>利用drawImage() 把&lt;image /&gt;绘制在canvas上</li>
+<li>利用canvas.toDataURL(‘image/png’,1) 转换为PNG Uri</li>
+</ol>
+</li>
+<li><p> 参考：npm 包 save-svg-as-png <a target="_blank" rel="noopener" href="https://github.com/exupero/saveSvgAsPng">exupero/saveSvgAsPng: Save SVGs as PNGs from the browser. (github.com)</a></p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 保存为png，原理是动态创建canvas标签，利用toDataURL()创建下载链接</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;object&#125;</span> </span>src image</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>width image.width</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>height image.height</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">convertToPng</span>(<span class="params">src, width, height</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&#x27;canvas&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> pixelRatio = <span class="built_in">window</span>.devicePixelRatio;</span><br><span class="line">  canvas.width = width * pixelRatio;</span><br><span class="line">  canvas.height = height * pixelRatio;</span><br><span class="line">  canvas.style.width = <span class="string">`<span class="subst">$&#123;canvas.width&#125;</span>px`</span>;</span><br><span class="line">  canvas.style.height = <span class="string">`<span class="subst">$&#123;canvas.height&#125;</span>px`</span>;</span><br><span class="line">  ctx.setTransform(pixelRatio, <span class="number">0</span>, <span class="number">0</span>, pixelRatio, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  ctx.drawImage(src, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> png = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> a = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">  a.href = png;</span><br><span class="line">  a.download = <span class="string">&#x27;saveAsPng&#x27;</span>;</span><br><span class="line">  a.click();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 保存为png简单Demo</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveAsPng</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> pureSvg = svgRef.current;</span><br><span class="line">  <span class="keyword">const</span> s = <span class="keyword">new</span> XMLSerializer();</span><br><span class="line">  <span class="keyword">const</span> src = s.serializeToString(pureSvg); <span class="comment">// 对svg进行序列化，转为字符串</span></span><br><span class="line">  <span class="keyword">const</span> doctype =</span><br><span class="line">    <span class="string">&#x27;&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot; [&lt;!ENTITY nbsp &quot;&amp;#160;&quot;&gt;]&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> svgUri = <span class="string">`data:image/svg+xml;base64,<span class="subst">$&#123;<span class="built_in">window</span>.btoa(doctype + src)&#125;</span>`</span>; <span class="comment">// 转为base64编码的dataUri</span></span><br><span class="line">  <span class="keyword">const</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">  image.onload = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    convertToPng(image, image.width, image.height);</span><br><span class="line">  &#125;;</span><br><span class="line">  image.onerror = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;image load error&#x27;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  image.src = svgUri;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-SVG字符串与SVG元素的互相转换"><a href="#5-SVG字符串与SVG元素的互相转换" class="headerlink" title="5. SVG字符串与SVG元素的互相转换"></a>5. SVG字符串与SVG元素的互相转换</h2><ol>
+<li>SVG字符串 -&gt; SVG元素</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 把SVG字符串转换为XML</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>str svg字符串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="variable">XML</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">str2svg</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> DOMParser().parseFromString(str, <span class="string">&#x27;text/xml&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> svgNode = str2svg(svg).documentElement;</span><br><span class="line">ParentDIV.appendChild(svgNode); <span class="comment">// 添加svg元素</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>SVG元素 -&gt; SVG字符串</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">const</span> pureSvg = svgRef.current; <span class="comment">// 获取svg元素</span></span><br><span class="line">   <span class="keyword">const</span> s = <span class="keyword">new</span> XMLSerializer();</span><br><span class="line">   <span class="keyword">const</span> src = s.serializeToString(pureSvg); <span class="comment">// 对svg进行序列化，转为字符串</span></span><br><span class="line">   <span class="keyword">const</span> doctype =</span><br><span class="line">     <span class="string">&#x27;&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot; [&lt;!ENTITY nbsp &quot;&amp;#160;&quot;&gt;]&gt;&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> svgString = doctype + src; <span class="comment">// 拼接</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-对图标的一些属性的简单修改"><a href="#6-对图标的一些属性的简单修改" class="headerlink" title="6. 对图标的一些属性的简单修改"></a>6. 对图标的一些属性的简单修改</h2><p>核心：使用setAttribute()对svg元素进行简单的设置</p>
+<ol>
+<li>代码</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 简单修改svg元素的属性</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param <span class="type">&#123;object&#125;</span> </span>config svg设置</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param <span class="type">&#123;HTMLElement&#125;</span> </span>svgNode svg元素</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@returns</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setConfig</span>(<span class="params">config, svgNode</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">const</span> &#123;</span><br><span class="line">     size = <span class="string">&#x27;3em&#x27;</span>,</span><br><span class="line">     strokeWidth = <span class="string">&#x27;4&#x27;</span>,</span><br><span class="line">     strokeLinejoin = <span class="string">&#x27;round&#x27;</span>,</span><br><span class="line">     stroke = <span class="string">&#x27;#333&#x27;</span></span><br><span class="line">   &#125; = config || &#123;&#125;;</span><br><span class="line">   <span class="keyword">if</span> (svgNode == <span class="literal">null</span>) <span class="keyword">return</span>;</span><br><span class="line">   svgNode.setAttribute(<span class="string">&#x27;width&#x27;</span>, size);</span><br><span class="line">   svgNode.setAttribute(<span class="string">&#x27;height&#x27;</span>, size);</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">const</span> child <span class="keyword">of</span> svgNode.childNodes) &#123;</span><br><span class="line">     child.setAttribute(<span class="string">&#x27;stroke-width&#x27;</span>, strokeWidth);</span><br><span class="line">     child.setAttribute(<span class="string">&#x27;stroke-linejoin&#x27;</span>, strokeLinejoin);</span><br><span class="line">     child.setAttribute(<span class="string">&#x27;stroke&#x27;</span>, stroke);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Demo地址：<a target="_blank" rel="noopener" href="https://github.com/Ilizarov1/react_blog">Ilizarov1/react_blog (github.com)</a></li>
+</ol>
+<h1 id="Lottie"><a href="#Lottie" class="headerlink" title="Lottie"></a>Lottie</h1><p>可以对AE转出的json格式动画进行实时渲染</p>
+<h2 id="1-简单使用"><a href="#1-简单使用" class="headerlink" title="1. 简单使用"></a>1. 简单使用</h2><ol>
+<li><p>主要使用了react-lottie库，该库将 lottie-web 进行了一些封装，便于在react中使用</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/chenqingspring/react-lottie">chenqingspring/react-lottie: Render After Effects animations on React based on lottie-web (github.com)</a></p>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Lottie <span class="keyword">from</span> <span class="string">&#x27;react-lottie&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> LineAnimation <span class="keyword">from</span> <span class="string">&#x27;../public/LineAnimation.json&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MyLottie = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> options = &#123;</span><br><span class="line">    <span class="attr">loop</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">autoPlay</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">animationData</span>: LineAnimation,</span><br><span class="line">    <span class="attr">rendererSettings</span>: &#123;</span><br><span class="line">      <span class="attr">preserveAspectRatio</span>: <span class="string">&#x27;xMidYMid slice&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Lottie</span> <span class="attr">options</span>=<span class="string">&#123;options&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ilizarov1.github.io/2021/11/11/svg-xue-xi/" data-id="ckvuy21j10000kgu7gmrn6pgx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/11/11/tu-pian-ce-shi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          图片测试
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/React/">React</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/28/react-xue-xi/">React 学习</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/11/tu-pian-ce-shi/">图片测试</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/11/svg-xue-xi/">SVG学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Ilizarov Zhao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
