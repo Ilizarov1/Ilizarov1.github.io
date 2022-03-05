@@ -16,17 +16,19 @@
   <meta name="author" content="Ilizarov Zhao">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一些面经知识点React部分CSS部分盒模型 content padding border margin box-sizing: content-box  width, height不包含padding和border box-sizing: border-box —包含padding border  选择器 id  类 标签 子代 相邻子代 兄弟 相邻兄弟 属性 伪类 伪元素 通配符  ::bef">
+    <meta name="description" content="一些面经知识点React部分1. 虚拟DOM 把页面DOM抽象成了JS对象，抽象具体渲染过程，实现组件高度抽象化和跨平台，使其不仅仅局限于浏览器  将多次DOM操作先反应在虚拟DOM上，再一次性更新到具体DOM，在一程度上提高效率  在牺牲部分性能前提下，增加可维护性  多一层对虚拟DOM操作，实际上会比原生操作更慢（时间上缺陷  需要在内存中维护，占用更多内存（空间上缺陷   2. Diff 算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面经知识点">
 <meta property="og:url" content="https://ilizarov1.github.io/2022/03/05/%E4%B8%80%E4%BA%9B%E9%9D%A2%E7%BB%8F%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
 <meta property="og:site_name" content="Not A Number">
-<meta property="og:description" content="一些面经知识点React部分CSS部分盒模型 content padding border margin box-sizing: content-box  width, height不包含padding和border box-sizing: border-box —包含padding border  选择器 id  类 标签 子代 相邻子代 兄弟 相邻兄弟 属性 伪类 伪元素 通配符  ::bef">
+<meta property="og:description" content="一些面经知识点React部分1. 虚拟DOM 把页面DOM抽象成了JS对象，抽象具体渲染过程，实现组件高度抽象化和跨平台，使其不仅仅局限于浏览器  将多次DOM操作先反应在虚拟DOM上，再一次性更新到具体DOM，在一程度上提高效率  在牺牲部分性能前提下，增加可维护性  多一层对虚拟DOM操作，实际上会比原生操作更慢（时间上缺陷  需要在内存中维护，占用更多内存（空间上缺陷   2. Diff 算">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ilizarov1.github.io/%E4%B8%80%E4%BA%9B%E9%9D%A2%E7%BB%8F%E7%9F%A5%E8%AF%86%E7%82%B9/Hooks.png">
 <meta property="article:published_time" content="2022-03-04T16:50:00.000Z">
-<meta property="article:modified_time" content="2022-03-04T17:00:10.441Z">
+<meta property="article:modified_time" content="2022-03-05T13:02:52.022Z">
 <meta property="article:author" content="Ilizarov Zhao">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ilizarov1.github.io/%E4%B8%80%E4%BA%9B%E9%9D%A2%E7%BB%8F%E7%9F%A5%E8%AF%86%E7%82%B9/Hooks.png">
   
   
   <title>面经知识点 - Not A Number</title>
@@ -209,7 +211,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          undefined 字
+          3.4k 字
         
       </span>
     
@@ -220,7 +222,7 @@
         
         
         
-          NaN 分钟
+          29 分钟
         
       </span>
     
@@ -262,7 +264,85 @@
             
             <div class="markdown-body">
               
-              <h1 id="一些面经知识点"><a href="#一些面经知识点" class="headerlink" title="一些面经知识点"></a>一些面经知识点</h1><h2 id="React部分"><a href="#React部分" class="headerlink" title="React部分"></a>React部分</h2><h2 id="CSS部分"><a href="#CSS部分" class="headerlink" title="CSS部分"></a>CSS部分</h2><h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><ul>
+              <h1 id="一些面经知识点"><a href="#一些面经知识点" class="headerlink" title="一些面经知识点"></a>一些面经知识点</h1><h2 id="React部分"><a href="#React部分" class="headerlink" title="React部分"></a>React部分</h2><h3 id="1-虚拟DOM"><a href="#1-虚拟DOM" class="headerlink" title="1. 虚拟DOM"></a>1. 虚拟DOM</h3><ul>
+<li><p>把页面DOM抽象成了JS对象，<strong>抽象具体渲染过程，实现组件高度抽象化和跨平台</strong>，使其不仅仅局限于浏览器</p>
+</li>
+<li><p>将多次DOM操作先反应在虚拟DOM上，再一次性更新到具体DOM，<strong>在一程度上提高效率</strong></p>
+</li>
+<li><p>在牺牲部分性能前提下，增加可维护性</p>
+</li>
+<li><p>多一层对虚拟DOM操作，实际上会比原生操作更慢（时间上缺陷</p>
+</li>
+<li><p>需要在内存中维护，占用更多内存（空间上缺陷</p>
+</li>
+</ul>
+<h3 id="2-Diff-算法"><a href="#2-Diff-算法" class="headerlink" title="2. Diff 算法"></a>2. Diff 算法</h3><ul>
+<li>更新流程：<ul>
+<li>调用render() 产生新的树</li>
+<li>与上一次的树进行比较，形成patch</li>
+<li>根据patch更新真实DOM</li>
+</ul>
+</li>
+<li>比较过程（启发式算法，完全比较需要 O(n^3)：<ul>
+<li>原则：只发生最小的变化</li>
+<li>一：只对树的同一层次节点进行比较，忽略跨级</li>
+<li>二：对比根节点类型，不相同，则触发全部重建</li>
+<li>三：相同类型节点，对比 class （style 变化时，仅更新有变化的</li>
+<li>四：遍历子节点并递归（列表头结点插入会影响性能</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-为什么需要key"><a href="#3-为什么需要key" class="headerlink" title="3. 为什么需要key"></a>3. 为什么需要key</h3><ul>
+<li>如上所讲，列表头结点插入会影响性能</li>
+<li>遍历子节点时，有大量相同类型节点会优先比较key，提高效率</li>
+</ul>
+<h3 id="4-React-Hooks-有哪些"><a href="#4-React-Hooks-有哪些" class="headerlink" title="4. React Hooks 有哪些"></a>4. React Hooks 有哪些</h3><p><img src="/%E4%B8%80%E4%BA%9B%E9%9D%A2%E7%BB%8F%E7%9F%A5%E8%AF%86%E7%82%B9/Hooks.png" srcset="/img/loading.gif" lazyload alt="Hooks"></p>
+<ul>
+<li><p>useReducer:</p>
+<ul>
+<li>```javascript<br>const [state, dispatch] = useReducer(reducer, initialArg, init);<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs pf"><br>- ```javascript<br>  <span class="hljs-keyword">const</span> initialState = &#123;count: <span class="hljs-number">0</span>&#125;;<br>  <br>  function reducer(<span class="hljs-keyword">state</span>, action) &#123;<br>    switch (action.type) &#123;<br>      case &#x27;increment&#x27;:<br>        return &#123;count: <span class="hljs-keyword">state</span>.count + <span class="hljs-number">1</span>&#125;;<br>      case &#x27;decrement&#x27;:<br>        return &#123;count: <span class="hljs-keyword">state</span>.count - <span class="hljs-number">1</span>&#125;;<br>      <span class="hljs-keyword">default</span>:<br>        throw new Error();<br>    &#125;<br>  &#125;<br>  <br>  function Counter() &#123;<br>    <span class="hljs-keyword">const</span> [<span class="hljs-keyword">state</span>, dispatch] = useReducer(reducer, initialState);<br>    return (<br>      <span class="hljs-variable">&lt;&gt;</span><br>        Count: &#123;<span class="hljs-keyword">state</span>.count&#125;<br>        <span class="hljs-variable">&lt;button onClick=&#123;() =&gt;</span> dispatch(&#123;type: &#x27;decrement&#x27;&#125;)&#125;&gt;-&lt;/button&gt;<br>        <span class="hljs-variable">&lt;button onClick=&#123;() =&gt;</span> dispatch(&#123;type: &#x27;increment&#x27;&#125;)&#125;&gt;+&lt;/button&gt;<br>      &lt;/&gt;<br>    );<br>  &#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>useCallback</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/014ee0ebe959">useCallback()、useMemo() 解决了什么问题？ - 简书 (jianshu.com)</a></p>
+</li>
+<li><p>```javascript<br>const memoizedCallback = useCallback(<br>  () =&gt; {</p>
+<pre><code class="hljs">doSomething(a, b);
+</code></pre>
+<p>  },<br>  [a, b],<br>);</p>
+<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs moonscript"><br>- useCallback(fn, deps) 相当于 useMemo(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> fn, deps)<br><br>- 使用场景：<br><br>  - ```javascript<br>    ()=&gt;&#123;&#125; === <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;&#125; // <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>父组件向子组件传入函数</p>
+</li>
+<li><p>父组件重新渲染时会重新创建函数，导致子组件重新渲染</p>
+</li>
+<li><p>```javascript<br>function ParentComp () {<br>  const [ count, setCount ] = useState(0)<br>  const increment = () =&gt; setCount(count + 1)</p>
+<p>  const [ name, setName ] = useState(‘hi~’)<br>  const changeName = (newName) =&gt; setName(newName)  // 父组件渲染时会创建一个新的函数</p>
+<p>  return (</p>
+<pre><code class="hljs">&lt;div&gt;
+  &lt;button onClick=&#123;increment&#125;&gt;点击次数：&#123;count&#125;&lt;/button&gt;
+  &lt;ChildComp name=&#123;name&#125; onClick=&#123;changeName&#125;/&gt;
+&lt;/div&gt;
+</code></pre>
+<p>  );<br>}</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><br>- useMemo:<br><br>  - ```<span class="javascript">javascript</span><br><span class="javascript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ParentComp</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">      <span class="hljs-keyword">const</span> [ count, setCount ] = useState(<span class="hljs-number">0</span>)</span><br><span class="javascript">      <span class="hljs-keyword">const</span> increment = <span class="hljs-function">() =&gt;</span> setCount(count + <span class="hljs-number">1</span>)</span><br><span class="javascript">    </span><br><span class="javascript">      <span class="hljs-keyword">const</span> [ name, setName ] = useState(<span class="hljs-string">&#x27;hi~&#x27;</span>)</span><br><span class="javascript">      <span class="hljs-keyword">const</span> changeName = <span class="hljs-function">(<span class="hljs-params">newName</span>) =&gt;</span> setName(newName)  <span class="hljs-comment">// 父组件渲染时会创建一个新的函数</span></span><br><span class="javascript">    </span><br><span class="javascript">      <span class="hljs-keyword">return</span> (</span><br><span class="javascript">        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="xml"><span class="javascript">          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;increment&#125;</span>&gt;</span>点击次数：&#123;count&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></span><br><span class="xml"><span class="javascript">          <span class="hljs-tag">&lt;<span class="hljs-name">ChildComp</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#123;name&#125;</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;changeName&#125;/</span>&gt;</span></span></span><br><span class="xml"><span class="javascript">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="javascript">      );</span><br><span class="javascript">    &#125;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>第一个参数是个函数，返回的对象指向同一个引用，不会创建新对象；</p>
+</li>
+<li><p>第二个参数是个数组，只有数组中的变量改变时，第一个参数的函数才会返回一个新的对象。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-React-createElement-与React-cloneElement"><a href="#5-React-createElement-与React-cloneElement" class="headerlink" title="5. React.createElement 与React.cloneElement"></a>5. React.createElement 与React.cloneElement</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">React.cloneElement(element, [props], [...children]);<br><br>React.createElement(type, [props], [...children]);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>区别就是，一个使用已有的element创建，另一个使用类型创建</li>
+</ul>
+<h2 id="CSS部分"><a href="#CSS部分" class="headerlink" title="CSS部分"></a>CSS部分</h2><h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><ul>
 <li>content padding border margin</li>
 <li>box-sizing: content-box  width, height不包含padding和border</li>
 <li>box-sizing: border-box —包含padding border</li>
