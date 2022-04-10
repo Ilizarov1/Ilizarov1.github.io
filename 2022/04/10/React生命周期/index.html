@@ -16,20 +16,23 @@
   <meta name="author" content="Ilizarov Zhao">
   <meta name="keywords" content="">
   
-    <meta name="description" content="对齐方式背景设置 12345678910#container &amp;#123;       width: 800px;       height: 600px;       background-color: chocolate;     &amp;#125;#content &amp;#123;       width: 200px;       height: 200px;       background-co">
+    <meta name="description" content="React 生命周期https:&#x2F;&#x2F;zh-hans.reactjs.org&#x2F;docs&#x2F;react-component.html 1. 三个常用 ComponentDidMount  ComponentDidUpdate  ComponentWillUnmout     2. 三个不常用的 static getDerivedStateFromProps ：唯一目的，使 State 随 props 变">
 <meta property="og:type" content="article">
-<meta property="og:title" content="水平垂直居中">
-<meta property="og:url" content="https://ilizarov1.github.io/2022/04/09/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/index.html">
+<meta property="og:title" content="React生命周期">
+<meta property="og:url" content="https://ilizarov1.github.io/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
 <meta property="og:site_name" content="Not A Number">
-<meta property="og:description" content="对齐方式背景设置 12345678910#container &amp;#123;       width: 800px;       height: 600px;       background-color: chocolate;     &amp;#125;#content &amp;#123;       width: 200px;       height: 200px;       background-co">
+<meta property="og:description" content="React 生命周期https:&#x2F;&#x2F;zh-hans.reactjs.org&#x2F;docs&#x2F;react-component.html 1. 三个常用 ComponentDidMount  ComponentDidUpdate  ComponentWillUnmout     2. 三个不常用的 static getDerivedStateFromProps ：唯一目的，使 State 随 props 变">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-09T13:33:12.000Z">
-<meta property="article:modified_time" content="2022-04-09T13:33:28.093Z">
+<meta property="og:image" content="https://ilizarov1.github.io/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/2022-04-10-22-54-50-image.png">
+<meta property="og:image" content="https://ilizarov1.github.io/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/2022-04-10-23-22-48-image.png">
+<meta property="article:published_time" content="2022-04-10T15:53:47.000Z">
+<meta property="article:modified_time" content="2022-04-10T15:55:00.875Z">
 <meta property="article:author" content="Ilizarov Zhao">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ilizarov1.github.io/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/2022-04-10-22-54-50-image.png">
   
   
-  <title>水平垂直居中 - Not A Number</title>
+  <title>React生命周期 - Not A Number</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -186,7 +189,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="水平垂直居中"></span>
+            <span id="subtitle" data-typed-text="React生命周期"></span>
           
         </div>
 
@@ -197,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-04-09 21:33" pubdate>
-          2022年4月9日 晚上
+        <time datetime="2022-04-10 23:53" pubdate>
+          2022年4月10日 晚上
         </time>
       </span>
     
@@ -209,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          705 字
+          780 字
         
       </span>
     
@@ -220,7 +223,7 @@
         
         
         
-          6 分钟
+          7 分钟
         
       </span>
     
@@ -258,30 +261,39 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">水平垂直居中</h1>
+            <h1 style="display: none">React生命周期</h1>
             
             <div class="markdown-body">
               
-              <h1 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h1><p>背景设置</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-id">#container</span> &#123;<br>       <span class="hljs-attribute">width</span>: <span class="hljs-number">800px</span>;<br>       <span class="hljs-attribute">height</span>: <span class="hljs-number">600px</span>;<br>       <span class="hljs-attribute">background-color</span>: chocolate;<br>     &#125;<br><span class="hljs-selector-id">#content</span> &#123;<br>       <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;<br>       <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;<br>       <span class="hljs-attribute">background-color</span>: aquamarine;<br>     &#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="1-使用Flex布局"><a href="#1-使用Flex布局" class="headerlink" title="1. 使用Flex布局"></a>1. 使用Flex布局</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-id">#container</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-comment">/*主轴对齐*/</span><br>  <span class="hljs-attribute">justify-content</span>: center;<br>  <span class="hljs-comment">/*交叉轴对齐*/</span><br>  <span class="hljs-attribute">align-items</span>: center;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h3><ul>
-<li>Flex有哪些属性（容器属性、项目属性）</li>
-</ul>
-<h2 id="2-使用定位Position"><a href="#2-使用定位Position" class="headerlink" title="2. 使用定位Position"></a>2. 使用定位Position</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-id">#container</span> &#123;<br>  <span class="hljs-attribute">position</span>: relative;<br>&#125;<br><span class="hljs-selector-id">#content</span> &#123;<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(-<span class="hljs-number">50%</span>, -<span class="hljs-number">50%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="知识点：-1"><a href="#知识点：-1" class="headerlink" title="知识点："></a>知识点：</h3><ul>
-<li><p>Position的值（重点sticky）</p>
+              <h1 id="React-生命周期"><a href="#React-生命周期" class="headerlink" title="React 生命周期"></a>React 生命周期</h1><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/react-component.html">https://zh-hans.reactjs.org/docs/react-component.html</a></p>
+<h2 id="1-三个常用"><a href="#1-三个常用" class="headerlink" title="1. 三个常用"></a>1. 三个常用</h2><ul>
+<li><p>ComponentDidMount</p>
 </li>
-<li><p>translate -50%，是以内容宽高为标准的还是算上padding border为标准</p>
+<li><p>ComponentDidUpdate</p>
+</li>
+<li><p>ComponentWillUnmout</p>
 </li>
 </ul>
-<h2 id="3-使用margin-auto"><a href="#3-使用margin-auto" class="headerlink" title="3. 使用margin: auto"></a>3. 使用margin: auto</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-id">#container</span> &#123;<br>  <span class="hljs-attribute">position</span>: relative;<br>&#125;<br><span class="hljs-selector-id">#content</span> &#123;<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">margin</span>: auto;<br>&#125;<br></code></pre></td></tr></table></figure>
+<img title src="/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/2022-04-10-22-54-50-image.png" srcset="/img/loading.gif" lazyload alt data-align="inline" width="692">
 
-<h3 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h3><p>必须要设置 top left right bottom 为 0</p>
-<h2 id="4-使用-grid-布局"><a href="#4-使用-grid-布局" class="headerlink" title="4. 使用 grid 布局"></a>4. 使用 grid 布局</h2>
+<h2 id="2-三个不常用的"><a href="#2-三个不常用的" class="headerlink" title="2. 三个不常用的"></a>2. 三个不常用的</h2><ul>
+<li><p>static getDerivedStateFromProps ：唯一目的，使 State 随 props 变化，应用场景（state在任何时候都与props相同）</p>
+</li>
+<li><p>getSnapshotBeforeUpdate：在render之后，更新DOM之前，从DOM中捕获信息，返回值会作为componentDidUpdate的第三个参数</p>
+</li>
+<li><p>shouldComponentUpdate：根据 <code>shouldComponentUpdate()</code> 的返回值，判断 React 组件的输出是否受当前 state 或 props 更改的影响。首次渲染或使用 <code>forceUpdate()</code> 时不会调用该方法。</p>
+</li>
+</ul>
+<p><img src="/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/2022-04-10-23-22-48-image.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3-相关知识点"><a href="#3-相关知识点" class="headerlink" title="3. 相关知识点"></a>3. 相关知识点</h2><ul>
+<li><p>React.PureComponent：与 React.Component的区别是，PureComponent以浅层比较方式实现了shouldComponentUpdate，在组件使用相同 state 和 props 情况下可以提高性能</p>
+</li>
+<li><p>受控组件与非受控组件：受控指组件受到 props 影响和控制，非受控指组件仅含有 state <a target="_blank" rel="noopener" href="https://goshacmd.com/controlled-vs-uncontrolled-inputs-react/">Controlled and uncontrolled form inputs in React don’t have to be complicated - Gosha Arinich (goshacmd.com)</a></p>
+</li>
+<li><p>component.forceUpdate(callback)：强制组件刷新。如果 <code>render()</code> 方法依赖于其他数据，则可以调用 <code>forceUpdate()</code> 强制让组件重新渲染。<a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/react-component.html#forceupdate">React.Component – React (reactjs.org)</a></p>
+</li>
+</ul>
+
               
             </div>
             <hr/>
@@ -303,7 +315,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E5%89%8D%E7%AB%AF/CSS/" class="category-chain-item">CSS</a>
+  <a href="/categories/%E5%89%8D%E7%AB%AF/React/" class="category-chain-item">React</a>
   
   
 
@@ -325,8 +337,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>水平垂直居中</div>
-      <div>https://ilizarov1.github.io/2022/04/09/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/</div>
+      <div>React生命周期</div>
+      <div>https://ilizarov1.github.io/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</div>
     </div>
     <div class="license-meta">
       
@@ -338,7 +350,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年4月9日</div>
+          <div>2022年4月10日</div>
         </div>
       
       
@@ -368,18 +380,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="React生命周期">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">React生命周期</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/09/%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" title="面试记录">
-                        <span class="hidden-mobile">面试记录</span>
+                      <a href="/2022/04/09/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" title="水平垂直居中">
+                        <span class="hidden-mobile">水平垂直居中</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

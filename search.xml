@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>React生命周期</title>
+      <link href="/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+      <url>/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="React-生命周期"><a href="#React-生命周期" class="headerlink" title="React 生命周期"></a>React 生命周期</h1><p><a href="https://zh-hans.reactjs.org/docs/react-component.html">https://zh-hans.reactjs.org/docs/react-component.html</a></p><h2 id="1-三个常用"><a href="#1-三个常用" class="headerlink" title="1. 三个常用"></a>1. 三个常用</h2><ul><li><p>ComponentDidMount</p></li><li><p>ComponentDidUpdate</p></li><li><p>ComponentWillUnmout</p></li></ul><img title src="/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/2022-04-10-22-54-50-image.png" alt data-align="inline" width="692"><h2 id="2-三个不常用的"><a href="#2-三个不常用的" class="headerlink" title="2. 三个不常用的"></a>2. 三个不常用的</h2><ul><li><p>static getDerivedStateFromProps ：唯一目的，使 State 随 props 变化，应用场景（state在任何时候都与props相同）</p></li><li><p>getSnapshotBeforeUpdate：在render之后，更新DOM之前，从DOM中捕获信息，返回值会作为componentDidUpdate的第三个参数</p></li><li><p>shouldComponentUpdate：根据 <code>shouldComponentUpdate()</code> 的返回值，判断 React 组件的输出是否受当前 state 或 props 更改的影响。首次渲染或使用 <code>forceUpdate()</code> 时不会调用该方法。</p></li></ul><p><img src="/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/2022-04-10-23-22-48-image.png"></p><h2 id="3-相关知识点"><a href="#3-相关知识点" class="headerlink" title="3. 相关知识点"></a>3. 相关知识点</h2><ul><li><p>React.PureComponent：与 React.Component的区别是，PureComponent以浅层比较方式实现了shouldComponentUpdate，在组件使用相同 state 和 props 情况下可以提高性能</p></li><li><p>受控组件与非受控组件：受控指组件受到 props 影响和控制，非受控指组件仅含有 state <a href="https://goshacmd.com/controlled-vs-uncontrolled-inputs-react/">Controlled and uncontrolled form inputs in React don’t have to be complicated - Gosha Arinich (goshacmd.com)</a></p></li><li><p>component.forceUpdate(callback)：强制组件刷新。如果 <code>render()</code> 方法依赖于其他数据，则可以调用 <code>forceUpdate()</code> 强制让组件重新渲染。<a href="https://zh-hans.reactjs.org/docs/react-component.html#forceupdate">React.Component – React (reactjs.org)</a></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+          <category> React </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>水平垂直居中</title>
       <link href="/2022/04/09/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
       <url>/2022/04/09/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/</url>
