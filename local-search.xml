@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>HTTP发展历史和特点介绍</title>
+    <link href="/2022/04/13/HTTP%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2%E5%92%8C%E7%89%B9%E7%82%B9%E4%BB%8B%E7%BB%8D/"/>
+    <url>/2022/04/13/HTTP%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2%E5%92%8C%E7%89%B9%E7%82%B9%E4%BB%8B%E7%BB%8D/</url>
+    
+    <content type="html"><![CDATA[<h1 id="HTTP-发展历史和特点介绍"><a href="#HTTP-发展历史和特点介绍" class="headerlink" title="HTTP 发展历史和特点介绍"></a>HTTP 发展历史和特点介绍</h1><p>简单、可扩展、无状态、有会话的网络通讯协议</p><h2 id="HTTP-0-9"><a href="#HTTP-0-9" class="headerlink" title="HTTP 0.9"></a>HTTP 0.9</h2><ul><li>请求为单行命令，仅有 GET</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">GET /mypage.html<br></code></pre></td></tr></table></figure><ul><li><p>响应仅包含文档，无 HTTP 头</p></li><li><p>不能传输其他类型，没有状态码</p></li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">HTML</span>&gt;</span><br>这是一个非常简单的HTML页面<br><span class="hljs-tag">&lt;/<span class="hljs-name">HTML</span>&gt;</span><br></code></pre></td></tr></table></figure><h2 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP 1.0"></a>HTTP 1.0</h2><ul><li><p>+引入状态码</p></li><li><p>+引入 HTTP 头，因此具备传输其他类型数据的能力（Content - Type头）</p></li><li><p>+每一个 HTTP 请求建立一个单独的 TCP 连接</p></li><li><p>请求报文：包括请求行和首部行</p><ul><li>请求行：方法字段、URL 字段和 HTTP 版本字段。<ul><li>方法字段：GET、POST、HEAD、PUT 和 DELETE等（POST 和 GET有什么区别？）</li></ul></li></ul></li></ul><p><img src="/2022/04/13/HTTP%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2%E5%92%8C%E7%89%B9%E7%82%B9%E4%BB%8B%E7%BB%8D/2022-04-12-20-30-15-image.png"></p><ul><li>响应报文<ul><li>状态行、首部行和响应实体</li><li>状态行：版本号、状态码、状态信息</li></ul></li></ul><p><img src="/2022/04/13/HTTP%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2%E5%92%8C%E7%89%B9%E7%82%B9%E4%BB%8B%E7%BB%8D/2022-04-12-20-34-20-image.png"></p><ul><li>-每个TCP连接只发送一个请求，在请求需要重新建立连接</li></ul><h2 id="HTTP-1-1-1-0发布几个月后"><a href="#HTTP-1-1-1-0发布几个月后" class="headerlink" title="HTTP 1.1 (1.0发布几个月后)"></a>HTTP 1.1 (1.0发布几个月后)</h2><ul><li>+连接复用（持久连接）</li><li>+管线化技术（流水线），下一个请求不必等上一个请求发送完即可发送（被证明无法在当前网络下实现</li><li>+支持响应分块（被后续流的机制代替）</li><li>+额外缓存机制 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching">HTTP 缓存 - HTTP | MDN</a></li><li>+内容协商机制（Accept - * 头）</li><li>+host 头，不同域名可配置到同一个IP地址</li><li>-队头堵塞，虽然TCP连接能够复用，但是必须按照次序进行通信，如果前面的回应慢就会造成后面的回应堵塞</li></ul><h2 id="HTTP-2-0-15年后"><a href="#HTTP-2-0-15年后" class="headerlink" title="HTTP 2.0 (15年后)"></a>HTTP 2.0 (15年后)</h2><ul><li><p>+二进制协议（1.1是文本协议）</p></li><li><p>+复用协议</p><ul><li><p>流模式，数据包标记 ID</p></li><li><p>同一连接中，可以发送不同的请求和响应，且无需按序</p></li></ul></li><li><p>+头部压缩</p><ul><li><p>使用 Gzip 压缩头部</p></li><li><p>维护头部信息表，只发送索引号</p></li></ul></li><li><p>+允许服务器推送</p></li><li><p>受限于 TCP 协议，会受到网络拥塞影响，一个报文拥塞，全部报文都发不出去</p></li></ul><h2 id="HTTP-3-0"><a href="#HTTP-3-0" class="headerlink" title="HTTP 3.0"></a>HTTP 3.0</h2><ul><li>基于 UDP 的 QUIC 协议</li><li>暂时处于草案状态</li></ul><h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>克服 HTTP 明文传输的缺陷</p><ul><li><p>TLS/SSL：TLS 协议是 SSL 协议的标准化版本</p></li><li><p>如何握手：大致就是客户端验证服务器给出的证书，同时两方共生成三个随机数用作后续对话的加密密钥。</p><ul><li><p>第一步，客户端向服务器发起请求，请求中包含使用的协议版本号、<strong>生成的一个随机数</strong>、以及客户端支持的加密方法。<code>（协议版本+随机数+支持的加密算法）</code></p></li><li><p>第二步，服务器端接收到请求后，<strong>确认双方使用的加密方法、并给出服务器的证书</strong>、以及一个服务器<strong>生成的随机数</strong>。<code>（确认加密算法+证书+随机数）</code></p></li><li><p>第三步，客户端<strong>确认服务器证书有效后</strong>，生成一个<strong>新的随机数</strong>，并使用数字证书中的公钥，<strong>加密这个随机数</strong>，然后发给服务器。并且还会提供一个前面所有内容的 <strong>hash 的值</strong>，用来供服务器检验。<code>（CA公钥验证证书+随机数+使用证书公钥加密随机数+供检验正确性的hash）</code></p></li><li><p>第四步，服务器使用自己的私钥，来<strong>解密客户端发送过来的随机数</strong>。并提供前面所有内容的 hash 值来供客户端检验。<code>（私钥解密随机数+前面所有内容的hash值以供检验）</code></p></li><li><p>第五步，客户端和服务器端根据约定的加密方法使用前面的<strong>三个随机数，生成对话秘钥</strong>，以后的对话过程都使用这个秘钥来加密信息。<code>（利用三个随机数生成加密密钥，后续会话就用约定的算法和密钥加密）</code></p></li></ul></li><li><p>中间人可以伪造请求吗？</p><ul><li><p>证书由CA的私钥加密，加密内容会相应网站的信息摘要</p></li><li><p>不可以，TLS 要求验证证书，中间人没有CA签发的证书，就算劫持了网站的证书也没有相应的CA私钥，无法实现信息篡改。</p></li></ul></li></ul><p><img src="/2022/04/13/HTTP%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2%E5%92%8C%E7%89%B9%E7%82%B9%E4%BB%8B%E7%BB%8D/2022-04-13-21-24-10-image.png"></p><p><img src="/2022/04/13/HTTP%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2%E5%92%8C%E7%89%B9%E7%82%B9%E4%BB%8B%E7%BB%8D/2022-04-13-21-44-56-49c7ee9636ea97d3e1688f369c3724e.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机网络</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>React生命周期</title>
     <link href="/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     <url>/2022/04/10/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
