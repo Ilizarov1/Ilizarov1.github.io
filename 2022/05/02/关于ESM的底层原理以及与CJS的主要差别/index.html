@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="Not A Number">
 <meta property="og:description" content="为什么需要模块化 更好的组织变量和函数 实现低耦合，高内聚，更好地维护代码  ESModule如何工作 主流模块化方案有两种，CommonJS 和 EcmaScript Module，这里介绍ESM的工作原理。  主要分为三个阶段：构建、实例化、评估（Evalutaion）   1. 构建 找到应该去哪里获取模块文件  下载模块文件  解析文件为模块记录（一种应用于模块的数据结构）   1.1 寻">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-01-22-02-39-0%7D52AX_~%609H%7DQ$6_GDY(LF8.png">
-<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-01-22-04-31-Z@Q($_GNI%60A4%7BYDGLBH4X6B.png">
-<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-01-22-09-52-QP(AITO06C]_A9P4O[3AC(P.png">
-<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/s%EF%BF%BDESM%EF%BF%BD%EF%BF%BDB%EF%BF%BD%06%EF%BF%BD%EF%BF%BD%0ECJS%EF%BF%BD;%EF%BF%BD%EF%BF%BD+/2022-05-02-15-53-53-N5W%60%7BYD11TNB%5D%250$DK@~7%60P.png">
-<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-02-16-15-56-RRLNGTQ%60EX%7DLT@JB(U9HPQS.png">
-<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-02-16-17-10-TS400R%5DBMO26(EP%7DB%60LRBTT.png">
-<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/s%EF%BF%BDESM%EF%BF%BD%EF%BF%BDB%EF%BF%BD%06%EF%BF%BD%EF%BF%BD%0ECJS%EF%BF%BD;%EF%BF%BD%EF%BF%BD+/2022-05-02-16-22-56-D0RZM%25%5DCL0@%7B5%5BE5GPZ%5D_DM.png">
+<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/ModuleMap.png">
+<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/ModuleRecord.png">
+<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/MapRecord.png">
+<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/Memroy.png">
+<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/Copy.png">
+<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/Cycle.png">
+<meta property="og:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/Undefined.png">
 <meta property="article:published_time" content="2022-05-02T08:25:18.000Z">
-<meta property="article:modified_time" content="2022-05-02T08:29:08.253Z">
+<meta property="article:modified_time" content="2022-05-02T08:39:50.322Z">
 <meta property="article:author" content="Ilizarov Zhao">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-01-22-02-39-0%7D52AX_~%609H%7DQ$6_GDY(LF8.png">
+<meta name="twitter:image" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/ModuleMap.png">
   
   
   <title>关于ESM的底层原理以及与CJS的主要差别 - Not A Number</title>
@@ -306,7 +306,7 @@
 <li><p>当获取到相同的模块文件时，略过</p>
 </li>
 </ul>
-<p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-01-22-02-39-0%7D52AX_~%609H%7DQ$6_GDY(LF8.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/ModuleMap.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="1-3-解析模块"><a href="#1-3-解析模块" class="headerlink" title="1.3 解析模块"></a>1.3 解析模块</h3><ul>
 <li>获取模块文件后，将其解析为模块记录，一种描述模块的数据结构，用于帮助浏览器理解模块信息和它们之间的区别。<ul>
 <li><p>模块解析使用严格模式</p>
@@ -316,11 +316,11 @@
 </ul>
 </li>
 </ul>
-<p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-01-22-04-31-Z@Q($_GNI%60A4%7BYDGLBH4X6B.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/ModuleRecord.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>一旦模块记录被创建，就会被置入 Module Map 的值中，替代 fetching，用作模块索引</li>
 </ul>
-<img title src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-01-22-09-52-QP(AITO06C]_A9P4O[3AC(P.png" srcset="/img/loading.gif" lazyload alt data-align="inline">
+<img title src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/MapRecord.png" srcset="/img/loading.gif" lazyload alt data-align="inline">
 
 <h2 id="2-实例化"><a href="#2-实例化" class="headerlink" title="2. 实例化"></a>2. 实例化</h2><p>实例化即结合代码和状态，而状态存于内存中，所以实例化过程即为写入内存的过程。</p>
 <ol>
@@ -337,7 +337,7 @@
 <li><p>为导入连接内存空间，导入和导出的变量连接到同一个内存空间（与CJS的不同点）</p>
 </li>
 </ol>
-<p><img src="/2022/05/02/s%EF%BF%BDESM%EF%BF%BD%EF%BF%BDB%EF%BF%BD%06%EF%BF%BD%EF%BF%BD%0ECJS%EF%BF%BD;%EF%BF%BD%EF%BF%BD+/2022-05-02-15-53-53-N5W%60%7BYD11TNB%5D%250$DK@~7%60P.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/Memroy.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="3-评估（运行代码）"><a href="#3-评估（运行代码）" class="headerlink" title="3. 评估（运行代码）"></a>3. 评估（运行代码）</h2><p>运行顶层代码（函数体外的代码），获取模块变量值，写入内存</p>
 <ul>
 <li><p>所有的模块代码应该只被运行一次，否则可能造成潜在副作用，这也是为什么使用 Module Map 对模块记录进行缓存的原因之一，可以保证它只被运行一次。</p>
@@ -356,11 +356,11 @@
 <h2 id="2-引用与值的拷贝"><a href="#2-引用与值的拷贝" class="headerlink" title="2. 引用与值的拷贝"></a>2. 引用与值的拷贝</h2><ul>
 <li>CJS在导出模块变量时，使用值的浅拷贝</li>
 </ul>
-<p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-02-16-15-56-RRLNGTQ%60EX%7DLT@JB(U9HPQS.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/Copy.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>ESM的模块变量，导入与导出，连接同一块内存区域，这一点也体现在循环依赖的处理上</li>
 </ul>
-<h2 id="3-循环依赖处理"><a href="#3-循环依赖处理" class="headerlink" title="3. 循环依赖处理"></a>3. 循环依赖处理</h2><p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/2022-05-02-16-17-10-TS400R%5DBMO26(EP%7DB%60LRBTT.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3-循环依赖处理"><a href="#3-循环依赖处理" class="headerlink" title="3. 循环依赖处理"></a>3. 循环依赖处理</h2><p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/Cycle.png" srcset="/img/loading.gif" lazyload></p>
 <p>以一个简单的循环依赖为例</p>
 <ul>
 <li><p>从main.js出发，进入counter.js，遭遇循环引入</p>
@@ -374,7 +374,7 @@
 <li><p>原因：CJS导出值的浅拷贝</p>
 </li>
 </ul>
-<p><img src="/2022/05/02/s%EF%BF%BDESM%EF%BF%BD%EF%BF%BDB%EF%BF%BD%06%EF%BF%BD%EF%BF%BD%0ECJS%EF%BF%BD;%EF%BF%BD%EF%BF%BD+/2022-05-02-16-22-56-D0RZM%25%5DCL0@%7B5%5BE5GPZ%5D_DM.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/Undefined.png" srcset="/img/loading.gif" lazyload></p>
 <p>相反，ESM最终的打印值为Eval complete，因为引用同一块内存区域。</p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/">ES modules: A cartoon deep-dive - Mozilla Hacks - the Web developer blog</a></p>
 
