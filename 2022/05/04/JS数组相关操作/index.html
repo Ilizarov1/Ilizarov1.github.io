@@ -16,20 +16,20 @@
   <meta name="author" content="Ilizarov Zhao">
   <meta name="keywords" content="">
   
-    <meta name="description" content="概览 Object.getOwnPropertyNames() - JavaScript | MDN (mozilla.org)  for…in - JavaScript | MDN (mozilla.org)  Object.keys() - JavaScript | MDN (mozilla.org)   区别 Object.getOwnPropertyNames() 返回一个数组，该数组对元">
+    <meta name="description" content="字符串相关操作 Array.prototype.toString() - JavaScript | MDN (mozilla.org)  Array.prototype.toLocaleString() - JavaScript | MDN (mozilla.org)  Array.prototype.join() - JavaScript | MDN (mozilla.org)   首尾相关操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于遍历对象属性">
-<meta property="og:url" content="https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8E%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/index.html">
+<meta property="og:title" content="JS数组相关操作">
+<meta property="og:url" content="https://ilizarov1.github.io/2022/05/04/JS%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Not A Number">
-<meta property="og:description" content="概览 Object.getOwnPropertyNames() - JavaScript | MDN (mozilla.org)  for…in - JavaScript | MDN (mozilla.org)  Object.keys() - JavaScript | MDN (mozilla.org)   区别 Object.getOwnPropertyNames() 返回一个数组，该数组对元">
+<meta property="og:description" content="字符串相关操作 Array.prototype.toString() - JavaScript | MDN (mozilla.org)  Array.prototype.toLocaleString() - JavaScript | MDN (mozilla.org)  Array.prototype.join() - JavaScript | MDN (mozilla.org)   首尾相关操作">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-02T08:28:00.000Z">
-<meta property="article:modified_time" content="2022-05-02T08:28:46.321Z">
+<meta property="article:published_time" content="2022-05-04T11:37:24.000Z">
+<meta property="article:modified_time" content="2022-05-04T11:37:53.393Z">
 <meta property="article:author" content="Ilizarov Zhao">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>关于遍历对象属性 - Not A Number</title>
+  <title>JS数组相关操作 - Not A Number</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -186,7 +186,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="关于遍历对象属性"></span>
+            <span id="subtitle" data-typed-text="JS数组相关操作"></span>
           
         </div>
 
@@ -197,8 +197,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-02 16:28" pubdate>
-          2022年5月2日 下午
+        <time datetime="2022-05-04 19:37" pubdate>
+          2022年5月4日 晚上
         </time>
       </span>
     
@@ -209,7 +209,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          378 字
+          408 字
         
       </span>
     
@@ -258,50 +258,84 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">关于遍历对象属性</h1>
+            <h1 style="display: none">JS数组相关操作</h1>
             
             <div class="markdown-body">
               
-              <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><ol>
-<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames#notes">Object.getOwnPropertyNames() - JavaScript | MDN (mozilla.org)</a></p>
+              <h1 id="字符串相关操作"><a href="#字符串相关操作" class="headerlink" title="字符串相关操作"></a>字符串相关操作</h1><ol>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toString">Array.prototype.toString() - JavaScript | MDN (mozilla.org)</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in">for…in - JavaScript | MDN (mozilla.org)</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString">Array.prototype.toLocaleString() - JavaScript | MDN (mozilla.org)</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/keys">Object.keys() - JavaScript | MDN (mozilla.org)</a></p>
-</li>
-</ol>
-<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ol>
-<li><p><code>Object.getOwnPropertyNames()</code> 返回一个数组，该数组对元素是 <code>obj</code>自身拥有的枚举或不可枚举属性名称字符串</p>
-</li>
-<li><p><strong><code>for...in</code>语句</strong>以任意顺序迭代一个对象的除<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a>以外的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举</a>属性，包括继承的可枚举属性</p>
-</li>
-<li><p><code>Object.keys</code> 返回一个所有元素为字符串的数组，其元素来自于从给定的<code>object</code>上面可直接枚举的属性</p>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join">Array.prototype.join() - JavaScript | MDN (mozilla.org)</a></p>
 </li>
 </ol>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">可枚举来自原型链的属性</th>
-<th align="center">可枚举描述符为不可枚举的属性</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Object.getOwnPropertyNames()</td>
-<td align="center">否</td>
-<td align="center">是</td>
-</tr>
-<tr>
-<td align="center">for…in</td>
-<td align="center">是</td>
-<td align="center">否</td>
-</tr>
-<tr>
-<td align="center">Object.keys</td>
-<td align="center">否</td>
-<td align="center">否</td>
-</tr>
-</tbody></table>
+<h1 id="首尾相关操作"><a href="#首尾相关操作" class="headerlink" title="首尾相关操作"></a>首尾相关操作</h1><ol>
+<li><p>push / pop</p>
+</li>
+<li><p>shift / unshift</p>
+</li>
+</ol>
+<h1 id="拼接裁剪相关操作"><a href="#拼接裁剪相关操作" class="headerlink" title="拼接裁剪相关操作"></a>拼接裁剪相关操作</h1><ol>
+<li><p>concat</p>
+</li>
+<li><p>splice</p>
+</li>
+</ol>
+<h1 id="索引包含相关操作"><a href="#索引包含相关操作" class="headerlink" title="索引包含相关操作"></a>索引包含相关操作</h1><ol>
+<li><p>indexOf</p>
+</li>
+<li><p>lastIndexOf</p>
+</li>
+<li><p>includes</p>
+</li>
+</ol>
+<h1 id="遍历相关操作"><a href="#遍历相关操作" class="headerlink" title="遍历相关操作"></a>遍历相关操作</h1><ol>
+<li><p>forEach</p>
+</li>
+<li><p>map</p>
+</li>
+<li><p>some</p>
+</li>
+<li><p>every</p>
+</li>
+<li><p>find</p>
+</li>
+<li><p>filter</p>
+</li>
+<li><p>keys</p>
+</li>
+<li><p>values</p>
+</li>
+<li><p>entries</p>
+</li>
+</ol>
+<h1 id="归并相关操作"><a href="#归并相关操作" class="headerlink" title="归并相关操作"></a>归并相关操作</h1><ol>
+<li><p>reduce</p>
+</li>
+<li><p>reduceRight</p>
+</li>
+</ol>
+<h1 id="排序相关操作"><a href="#排序相关操作" class="headerlink" title="排序相关操作"></a>排序相关操作</h1><ol>
+<li><p>sort</p>
+</li>
+<li><p>reverse</p>
+</li>
+</ol>
+<h1 id="扁平化相关操作"><a href="#扁平化相关操作" class="headerlink" title="扁平化相关操作"></a>扁平化相关操作</h1><ol>
+<li><p>flat</p>
+</li>
+<li><p>flatMap</p>
+</li>
+</ol>
+<h1 id="来自Array对象上的相关操作"><a href="#来自Array对象上的相关操作" class="headerlink" title="来自Array对象上的相关操作"></a>来自Array对象上的相关操作</h1><ol>
+<li><p>Array.from</p>
+</li>
+<li><p>Array.of</p>
+</li>
+<li><p>Array.isArray</p>
+</li>
+</ol>
 
               
             </div>
@@ -346,8 +380,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>关于遍历对象属性</div>
-      <div>https://ilizarov1.github.io/2022/05/02/%E5%85%B3%E4%BA%8E%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/</div>
+      <div>JS数组相关操作</div>
+      <div>https://ilizarov1.github.io/2022/05/04/JS%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/</div>
     </div>
     <div class="license-meta">
       
@@ -359,7 +393,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年5月2日</div>
+          <div>2022年5月4日</div>
         </div>
       
       
@@ -389,18 +423,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/04/JS%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/" title="JS数组相关操作">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS数组相关操作</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/02/%E5%85%B3%E4%BA%8EESM%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E4%B8%8ECJS%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E5%88%AB/" title="关于ESM的底层原理以及与CJS的主要差别">
-                        <span class="hidden-mobile">关于ESM的底层原理以及与CJS的主要差别</span>
+                      <a href="/2022/05/02/%E5%85%B3%E4%BA%8E%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/" title="关于遍历对象属性">
+                        <span class="hidden-mobile">关于遍历对象属性</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

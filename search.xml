@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>JS数组相关操作</title>
+      <link href="/2022/05/04/JS%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/"/>
+      <url>/2022/05/04/JS%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="字符串相关操作"><a href="#字符串相关操作" class="headerlink" title="字符串相关操作"></a>字符串相关操作</h1><ol><li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toString">Array.prototype.toString() - JavaScript | MDN (mozilla.org)</a></p></li><li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString">Array.prototype.toLocaleString() - JavaScript | MDN (mozilla.org)</a></p></li><li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join">Array.prototype.join() - JavaScript | MDN (mozilla.org)</a></p></li></ol><h1 id="首尾相关操作"><a href="#首尾相关操作" class="headerlink" title="首尾相关操作"></a>首尾相关操作</h1><ol><li><p>push / pop</p></li><li><p>shift / unshift</p></li></ol><h1 id="拼接裁剪相关操作"><a href="#拼接裁剪相关操作" class="headerlink" title="拼接裁剪相关操作"></a>拼接裁剪相关操作</h1><ol><li><p>concat</p></li><li><p>splice</p></li></ol><h1 id="索引包含相关操作"><a href="#索引包含相关操作" class="headerlink" title="索引包含相关操作"></a>索引包含相关操作</h1><ol><li><p>indexOf</p></li><li><p>lastIndexOf</p></li><li><p>includes</p></li></ol><h1 id="遍历相关操作"><a href="#遍历相关操作" class="headerlink" title="遍历相关操作"></a>遍历相关操作</h1><ol><li><p>forEach</p></li><li><p>map</p></li><li><p>some</p></li><li><p>every</p></li><li><p>find</p></li><li><p>filter</p></li><li><p>keys</p></li><li><p>values</p></li><li><p>entries</p></li></ol><h1 id="归并相关操作"><a href="#归并相关操作" class="headerlink" title="归并相关操作"></a>归并相关操作</h1><ol><li><p>reduce</p></li><li><p>reduceRight</p></li></ol><h1 id="排序相关操作"><a href="#排序相关操作" class="headerlink" title="排序相关操作"></a>排序相关操作</h1><ol><li><p>sort</p></li><li><p>reverse</p></li></ol><h1 id="扁平化相关操作"><a href="#扁平化相关操作" class="headerlink" title="扁平化相关操作"></a>扁平化相关操作</h1><ol><li><p>flat</p></li><li><p>flatMap</p></li></ol><h1 id="来自Array对象上的相关操作"><a href="#来自Array对象上的相关操作" class="headerlink" title="来自Array对象上的相关操作"></a>来自Array对象上的相关操作</h1><ol><li><p>Array.from</p></li><li><p>Array.of</p></li><li><p>Array.isArray</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于遍历对象属性</title>
       <link href="/2022/05/02/%E5%85%B3%E4%BA%8E%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/"/>
       <url>/2022/05/02/%E5%85%B3%E4%BA%8E%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/</url>
